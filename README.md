@@ -5,7 +5,7 @@ This Visualforce component is a twin-list multiselect picklist, modelled on the 
 
 Two lists of options are shown side-by-side; the user may move items between the left and right lists, and reorder items on the righthand list:
 
-![Screenshot](Visualforce-Multiselect-Picklist/blob/master/screenshot.png)
+![Screenshot](Visualforce-Multiselect-Picklist/raw/master/screenshot.png)
 
 JavaScript is used to manipulate the lists in the browser; no server round trips are required until the page is submitted.
 
