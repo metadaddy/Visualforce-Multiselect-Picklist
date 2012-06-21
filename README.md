@@ -18,6 +18,8 @@ Here's how you might use the component in a Visualforce page:
         size="14"
         width="150px"/>
 
+[Install the unmanaged package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tE0000000U9Gw), or download the code and add to your org.
+
 Feel free to fork, improve, and submit pull requests!
 
 License
