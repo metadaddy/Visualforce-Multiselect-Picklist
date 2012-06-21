@@ -1,0 +1,6 @@
+.DS_Store
+.project
+.settings
+Referenced Packages
+salesforce.schema
+src/package.xml

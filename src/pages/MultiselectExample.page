@@ -1,0 +1,16 @@
+<apex:page controller="MultiselectExampleController">
+    <apex:form >
+        <apex:pageBlock title="Contacts">
+            <c:MultiselectPicklist leftLabel="Available Contacts"
+                leftOptions="{!allContacts}"
+                rightLabel="Selected Contacts"
+                rightOptions="{!selectedContacts}"
+                size="14"
+                width="150px"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:outputText >{!message}</apex:outputText>
+</apex:page>
