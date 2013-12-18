@@ -23,10 +23,10 @@
   <apex:attribute name="width" description="Width of listboxes."
     type="String" required="true" />
 
-  <apex:attribute name="leftOptions"
+  <apex:attribute name="leftOption"
     description="Options list for left listbox." type="SelectOption[]"
     required="true" assignTo="{!leftOptions}" />
-  <apex:attribute name="rightOptions"
+  <apex:attribute name="rightOption"
     description="Options list for right listbox." type="SelectOption[]"
     required="true" assignTo="{!rightOptions}" />
 
