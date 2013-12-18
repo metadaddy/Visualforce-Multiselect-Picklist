@@ -2,9 +2,9 @@
     <apex:form >
         <apex:pageBlock title="Contacts">
             <c:MultiselectPicklist leftLabel="Available Contacts"
-                leftOptions="{!allContacts}"
+                leftOption="{!allContacts}"
                 rightLabel="Selected Contacts"
-                rightOptions="{!selectedContacts}"
+                rightOption="{!selectedContacts}"
                 size="14"
                 width="150px"/>
             <apex:pageBlockButtons >
