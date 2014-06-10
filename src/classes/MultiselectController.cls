@@ -10,7 +10,7 @@ public with sharing class MultiselectController {
     // Parse &-separated values and labels from value and 
     // put them in option
     private void setOptions(SelectOption[] options, String value) {
-        options.clear();
+        options = new List<SelectOption>();
         String[] parts = value.split('&');
         for (Integer i=0; i<parts.size()/2; i++) {
             options.add(new SelectOption(EncodingUtil.urlDecode(parts[i*2], 'UTF-8'), 
