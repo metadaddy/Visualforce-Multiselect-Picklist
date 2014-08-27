@@ -22,6 +22,8 @@
     type="Integer" required="true" />
   <apex:attribute name="width" description="Width of listboxes."
     type="String" required="true" />
+  <apex:attribute name="showUpDownButtons" description="Should Up/Down buttons be displayed or not."
+    type="Boolean" required="false" default="true"/>
 
   <apex:attribute name="leftOptions"
     description="Options list for left listbox." type="SelectOption[]"
@@ -86,8 +88,8 @@
             </select>
           </td>
           <td class="buttonCell"><apex:outputPanel layout="block"
-              styleClass="text">Up</apex:outputPanel>
-            <apex:outputPanel layout="block" styleClass="text">
+              styleClass="text" rendered="{!showUpDownButtons}">Up</apex:outputPanel>
+            <apex:outputPanel layout="block" styleClass="text" rendered="{!showUpDownButtons}">
               <apex:outputLink value="javascript:slideSelectedOptionsUp('{!$Component.multiselectPanel}:rightList', 
                   '{!$Component.rightHidden}');"
                 id="upBtn">
@@ -95,7 +97,7 @@
                   title="Up" />
               </apex:outputLink>
             </apex:outputPanel>
-            <apex:outputPanel layout="block" styleClass="text">
+            <apex:outputPanel layout="block" styleClass="text" rendered="{!showUpDownButtons}">
               <apex:outputLink value="javascript:slideSelectedOptionsDown('{!$Component.multiselectPanel}:rightList', 
                   '{!$Component.rightHidden}');"
                 id="downBtn">
@@ -103,7 +105,7 @@
                   title="Down" />
               </apex:outputLink>
             </apex:outputPanel>
-            <apex:outputPanel layout="block" styleClass="text">Down</apex:outputPanel>
+            <apex:outputPanel layout="block" styleClass="text" rendered="{!showUpDownButtons}">Down</apex:outputPanel>
           </td>
         </tr>
       </tbody>
