@@ -27,10 +27,10 @@
 
   <apex:attribute name="leftOptions"
     description="Options list for left listbox." type="SelectOption[]"
-    required="true" assignTo="{!leftOptions}" />
+    required="true" assignTo="{!lOptions}" />
   <apex:attribute name="rightOptions"
     description="Options list for right listbox." type="SelectOption[]"
-    required="true" assignTo="{!rightOptions}" />
+    required="true" assignTo="{!rOptions}" />
 
   <apex:outputPanel id="multiselectPanel" layout="block" styleClass="duelingListBox">
     <table class="layout">

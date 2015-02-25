@@ -4,8 +4,8 @@
  */
 public with sharing class MultiselectController {
     // SelectOption lists for public consumption
-    public SelectOption[] leftOptions { get; set; }
-    public SelectOption[] rightOptions { get; set; }
+    public SelectOption[] lOptions { get; set; }
+    public SelectOption[] rOptions { get; set; }
     
     // Parse &-separated values and labels from value and 
     // put them in option
@@ -22,7 +22,7 @@ public with sharing class MultiselectController {
     // left list
     public String leftOptionsHidden { get; set {
            leftOptionsHidden = value;
-           setOptions(leftOptions, value);
+           setOptions(lOptions, value);
         }
     }
     
@@ -30,7 +30,7 @@ public with sharing class MultiselectController {
     // right list
     public String rightOptionsHidden { get; set {
            rightOptionsHidden = value;
-           setOptions(rightOptions, value);
+           setOptions(rOptions, value);
         }
     }
 }
