@@ -25,10 +25,10 @@
   <apex:attribute name="showUpDownButtons" description="Should Up/Down buttons be displayed or not."
     type="Boolean" required="false" default="true"/>
 
-  <apex:attribute name="leftOptions"
+  <apex:attribute name="leftOption"
     description="Options list for left listbox." type="SelectOption[]"
     required="true" assignTo="{!leftOptions}" />
-  <apex:attribute name="rightOptions"
+  <apex:attribute name="rightOption"
     description="Options list for right listbox." type="SelectOption[]"
     required="true" assignTo="{!rightOptions}" />
 
