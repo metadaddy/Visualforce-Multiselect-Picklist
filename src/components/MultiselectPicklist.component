@@ -24,6 +24,8 @@
     type="String" required="true" />
   <apex:attribute name="showUpDownButtons" description="Should Up/Down buttons be displayed or not."
     type="Boolean" required="false" default="true"/>
+  <apex:attribute name="showAddRemoveText" description="Should add/remove text be displayed or not."
+    type="Boolean" required="false" default="true"/>
 
   <apex:attribute name="leftOption"
     description="Options list for left listbox." type="SelectOption[]"
@@ -54,7 +56,7 @@
             </select>
           </td>
           <td class="buttonCell">
-            <apex:outputPanel layout="block" styleClass="text">Add</apex:outputPanel>
+            <apex:outputPanel layout="block" styleClass="text" rendered="{!showAddRemoveText}">Add</apex:outputPanel>
             <apex:outputPanel layout="block" styleClass="text">
               <apex:outputLink value="javascript:moveSelectedOptions('{!$Component.multiselectPanel}:leftList', 
                   '{!$Component.multiselectPanel}:rightList', '{!$Component.leftHidden}', 
@@ -63,6 +65,10 @@
                 <apex:image value="/s.gif" alt="Add" styleClass="rightArrowIcon"
                   title="Add" />
               </apex:outputLink>
+            </apex:outputPanel>
+            <!-- Additional output panel and space for standard SFDC look -->
+            <apex:outputPanel layout="block" rendered="{!NOT(showAddRemoveText)}">
+              <BR />
             </apex:outputPanel>
             <apex:outputPanel layout="block" styleClass="text">
               <apex:outputLink value="javascript:moveSelectedOptions('{!$Component.multiselectPanel}:rightList', 
@@ -73,7 +79,7 @@
                   styleClass="leftArrowIcon" title="Remove" />
               </apex:outputLink>
             </apex:outputPanel>
-            <apex:outputPanel layout="block" styleClass="duelingText">Remove</apex:outputPanel>
+            <apex:outputPanel layout="block" styleClass="duelingText" rendered="{!showAddRemoveText}">Remove</apex:outputPanel>
           </td>
           <td class="selectCell">
             <apex:outputPanel layout="block" styleClass="selectTitle">
