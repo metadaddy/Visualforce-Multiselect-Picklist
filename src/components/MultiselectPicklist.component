@@ -47,7 +47,9 @@
             </apex:outputPanel>
             <select id="{!$Component.multiselectPanel}:leftList" 
               class="multilist" multiple="multiple" size="{!size}" 
-              style="width: {!width};">
+              style="width: {!width};" ondblclick="moveSelectedOptions('{!$Component.multiselectPanel}:leftList', 
+                  '{!$Component.multiselectPanel}:rightList', '{!$Component.leftHidden}', 
+                  '{!$Component.rightHidden}');">
               <apex:repeat value="{!leftOptions}" var="option">
                 <option value="{!option.value}">{!option.label}</option>
               </apex:repeat>
@@ -81,7 +83,9 @@
             </apex:outputPanel>
             <select id="{!$Component.multiselectPanel}:rightList" 
               class="multilist" multiple="multiple" size="{!size}" 
-              style="width: {!width};">
+              style="width: {!width};" ondblclick="moveSelectedOptions('{!$Component.multiselectPanel}:rightList', 
+                  '{!$Component.multiselectPanel}:leftList', '{!$Component.rightHidden}', 
+                  '{!$Component.leftHidden}');">
               <apex:repeat value="{!rightOptions}" var="option">
                 <option value="{!option.value}">{!option.label}</option>
               </apex:repeat>
