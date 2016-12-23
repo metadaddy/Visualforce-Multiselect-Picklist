@@ -24,6 +24,8 @@
     type="String" required="true" />
   <apex:attribute name="showUpDownButtons" description="Should Up/Down buttons be displayed or not."
     type="Boolean" required="false" default="true"/>
+  <apex:attribute name="useOuterLabels" description="Should label be displayed in option box or outside it."
+    type="Boolean" required="false" default="false"/>
 
   <apex:attribute name="leftOption"
     description="Options list for left listbox." type="SelectOption[]"
@@ -37,19 +39,20 @@
       <tbody>
         <tr>
           <td class="selectCell">
-            <apex:outputPanel layout="block" styleClass="selectTitle">
               <!-- 
                 Visualforce prepends the correct prefix to the outputLabel's 
                 'for' attribute
               -->
-              <apex:outputLabel value="{!leftLabel}" 
-                for="multiselectPanel:leftList" />
-            </apex:outputPanel>
+            <apex:outputLabel value="{!leftLabel}" 
+              for="multiselectPanel:leftList" styleClass="selectTitle" rendered="{!useOuterLabels}"/>
             <select id="{!$Component.multiselectPanel}:leftList" 
               class="multilist" multiple="multiple" size="{!size}" 
               style="width: {!width};">
+              <apex:outputPanel rendered="{!NOT(useOuterLabels)}">
+                <optgroup label="{!IF(useOuterLabels,null,leftLabel)}" />
+              </apex:outputPanel>
               <apex:repeat value="{!leftOptions}" var="option">
-                <option value="{!option.value}">{!option.label}</option>
+                <option value="{!option.value}" style="before{content:none}">{!option.label}</option>
               </apex:repeat>
             </select>
           </td>
@@ -76,12 +79,13 @@
             <apex:outputPanel layout="block" styleClass="duelingText">Remove</apex:outputPanel>
           </td>
           <td class="selectCell">
-            <apex:outputPanel layout="block" styleClass="selectTitle">
-              <apex:outputLabel value="{!rightLabel}" for="multiselectPanel:rightList" />
-            </apex:outputPanel>
+            <apex:outputLabel value="{!rightLabel}" for="multiselectPanel:rightList" styleClass="selectTitle" rendered="{!useOuterLabels}"/>
             <select id="{!$Component.multiselectPanel}:rightList" 
               class="multilist" multiple="multiple" size="{!size}" 
               style="width: {!width};">
+              <apex:outputPanel rendered="{!NOT(useOuterLabels)}">
+                <optgroup label="{!IF(useOuterLabels,null,rightLabel)}" />
+              </apex:outputPanel>
               <apex:repeat value="{!rightOptions}" var="option">
                 <option value="{!option.value}">{!option.label}</option>
               </apex:repeat>
