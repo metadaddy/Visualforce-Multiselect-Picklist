@@ -33,4 +33,20 @@ public with sharing class MultiselectController {
            setOptions(rightOptions, value);
         }
     }
+
+    // Use this to convert select option list to semi-colon separated string.
+    public static String parsedOptions(List<SelectOption> selectedOptions) {
+        String listOptions = '';
+        if (!selectedOptions.isEmpty()) {
+            Boolean first = true;
+            for (SelectOption so : selectedOptions) {
+                if (!first) {
+                    listOptions += '; ';
+                }
+                listOptions += so.getLabel();
+                first = false;
+            }
+        }
+        return listOptions;
+    }
 }
