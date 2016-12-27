@@ -24,6 +24,8 @@
     type="String" required="true" />
   <apex:attribute name="showUpDownButtons" description="Should Up/Down buttons be displayed or not."
     type="Boolean" required="false" default="true"/>
+  <apex:attribute name="sortAlphabetical" description="Should values be sorted alphabetically?."
+    type="Boolean" required="false" default="true"/>
 
   <apex:attribute name="leftOption"
     description="Options list for left listbox." type="SelectOption[]"
@@ -148,6 +150,10 @@
           }
         }
 
+        if ("{!sortAlphabetical}") {
+          sortSelect(listTo);
+        }
+
         listTo.focus();
 
         buildOutputString(listFrom, document.getElementById(idHdnFrom));
@@ -203,6 +209,24 @@
 
         buildOutputString(listBox, document.getElementById(idHidden));
       }
+    }
+    // from http://stackoverflow.com/questions/278089/javascript-to-sort-contents-of-select-element
+    function sortSelect(selElem) {
+      var tmpAry = new Array();
+      for (var i=0;i<selElem.options.length;i++) {
+          tmpAry[i] = new Array();
+          tmpAry[i][0] = selElem.options[i].text;
+          tmpAry[i][1] = selElem.options[i].value;
+      }
+      tmpAry.sort();
+      while (selElem.options.length > 0) {
+          selElem.options[0] = null;
+      }
+      for (var i=0;i<tmpAry.length;i++) {
+          var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+          selElem.options[i] = op;
+      }
+      return;
     }
     
     // initialize the string representations
